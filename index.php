@@ -1,13 +1,27 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
+
+<link rel="stylesheet" type="text/css" href="css/default.css">
+
 <html>
 	<head>
-		<title>phantom pizza by metaaa</title>
+		<title>order pizza by metaaa</title>
 	</head>
-	<body>
-
+	<body class="divBody">
+		<div id="siteArea" class="divSiteArea">
+			<div id="header" class="divHeader"></div>
+			<div id="mainMenu" class="divMainMenu">
+				<?php
+					include 'content-files/menu.php';
+				?>
+			</div>
+			<div id="content" class="divContent">
+				<div id="leftColumn" class="divLeftColumn"></div>
+				<div id="rightColumn" class="divRightColumn"></div>
+			</div>
+			<div id="footer" class="divFooter">
+				<div id="footerLeft" class="divFooterLeft"></div>
+				<div id="footerRight" class="divFooterRight"></div>
+			</div>
+		</div>
 	</body>
 </html>
