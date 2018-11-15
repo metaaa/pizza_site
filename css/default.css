@@ -25,3 +25,37 @@
 	background-position: center;
 	position: relative;
 }
+/*Main menu*/
+.divMainMenu{
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+/*divider style*/
+.divDivider{
+	width: 100%;
+	height: 5px;
+	background-color: #EEE !important;
+}
+.divContent{
+	min-height: 250px;
+	display: flex;
+	flex-direction: row;
+	background-color: #EEE !important;
+}
+.divLeftColumn{
+	width: 75%;
+	min-height: 250px;
+	background-color: #FFF;
+	text-align: left;
+	border: 0px 5px 0px 0px !important;
+	border-right-style: solid;
+	border-color: #EEE;
+}
+.divRightColumn{
+	width: 25%;
+	min-height: 250px;
+	background-color: #FFF;
+	text-align: left;
+}	

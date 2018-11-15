@@ -14,9 +14,10 @@
 					include 'content-files/menu.php';
 				?>
 			</div>
+			<div class="divDivider" ></div>
 			<div id="content" class="divContent">
-				<div id="leftColumn" class="divLeftColumn"></div>
-				<div id="rightColumn" class="divRightColumn"></div>
+				<div id="leftColumn" class="divLeftColumn">Your content goes here</div>
+				<div id="rightColumn" class="divRightColumn">login goes here</div>
 			</div>
 			<div id="footer" class="divFooter">
 				<div id="footerLeft" class="divFooterLeft"></div>
