@@ -1,3 +1,7 @@
+<?php
+	require_once 'setup.php';
+?>
+
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="css/default.css">
@@ -18,12 +22,12 @@
 			<div id="content" class="divContent">
 				<div id="leftColumn" class="divLeftColumn">
 					<?php
-						//include 'content-files/article.php';
+						include 'content-files/article.php';
 					?>
 				</div>
 				<div id="rightColumn" class="divRightColumn">
 					<?php
-						//include 'admin/login.php';
+						include 'admin/login.php';
 					?>
 				</div>
 			</div>

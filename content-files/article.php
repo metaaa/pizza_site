@@ -18,7 +18,7 @@ $articles = [
 ];
 
 foreach ($articles as $article) {
-	echo '<div>';
+	echo '<div></div>';
 }
 
 ?>
