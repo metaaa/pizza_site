@@ -1,4 +1,11 @@
 <?php
+
+
+//THIS WILL BE A ONE TIME SETUP FOR SQL TABLES
+
+
+
+
 	//incluse config for credentials
 	//include_once "config.php";
 	//table setup

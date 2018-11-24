@@ -1,41 +1,34 @@
 <?php
 	//include config
-	include "../config.php";
-	//initialize session
-	session_start();
-	//define empty variables
-	//$username = $password = "";
-	//$usernameError = $passwordError = "";
-
+    include "../config.php";
 	//processing the data when form is submitted
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		//username & password have been sent
-		$username = mysqli_real_escape_string($db, $_POST['username']);
-		$password = mysqli_real_escape_string($db, $_POST['paassword']);
+		$username = mysqli_real_escape_string($connection, $_POST['username']);
+		$password = mysqli_real_escape_string($connection, $_POST['paassword']);
 
-		//prepare sql statement
-		$sql = "SELECT id FROM users WHERE username = '$username' and password = '$password'";
-		$established =  mysql_query($db, $sql);
-		$row = mysqli_fetch_array($established, MYSQLI_ASSOC);
-		$active = $row['active'];
-		$count = mysqli_num_rows($established);
+		//select the user if it's exist
+		$sql = "SELECT username,password FROM users WHERE username = '$username' and password = '$password'";
+		$selectUser =  mysqli_query($connection, $sql);
+		$userFound = mysqli_num_rows(mysqli_fetch_array($selectUser, MYSQLI_ASSOC));
 
 		//if login found ($result = 1)
-		if ($count == 1) {
-			session_register("username");
-			header("../admin/admin.php");
+		if ($username == $userFound["username"] && $password == $userFound["password"]) {
+			header('Location: /pizza_site/content-files/menu.php');
 		} else {
-			$error = "Wrong ussername or password!";
+			echo "Wrong ussername or password!";
 		}
 	}
 ?>
 
-<!DOCTYPE html>
-	<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
+    <script type="text/javascript">
+        $('.message a').click(function(){
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+</script>
+
+
+
 		<div id="loginContainer" class="loginContainer">
 			<h2>Login</h2>
 			<form action="" method="post">
@@ -43,10 +36,22 @@
 				<label>Password</label><input type="password" name="password" class="box"/><br>
 				<input type="submit" value="Submit"/><br>
 			</form>
-			<div id="loginError" class="loginError">
-				<?php
-					echo "$error";
-				?>
-			</div>
-	</body>
-</html>
+        </div>
+
+<div class="login-page">
+    <div class="form">
+        <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+            <input type="text" placeholder="username"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+</div>
