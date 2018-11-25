@@ -16,12 +16,12 @@
 	}
 	//SQL for CREATE TABLE
 	if (!$tablesCreated){
-		$sql = "CREATE TABLE users(
+		$sqlQuery = "CREATE TABLE users(
 					id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 					username VARCHAR(30) NOT NULL,
 					password VARCHAR(20) NOT NULL)";
 	}
-	if (mysqli_query($db, $sql)){
+	if (mysqli_query($db, $sqlQuery)){
 		echo "Table created succesfully.";
 		$tablesCreated = 1;
 	} else {

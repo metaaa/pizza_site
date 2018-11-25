@@ -7,10 +7,9 @@
 	//connecting to DB
 	$connection = new mysqli($serverName, $userName, $password, $dbName);
 	//check connection
-    if ($connection->connect_error){
-        die("Connection failed: " . $connection->connect_error);
+    if ($connection->connect_errno){
+        echo ("Connection failed: " . $connection->connect_error);
     }
-    echo "Connected successfully!";
 
-    include_once "setup.php";
+    //include_once "setup.php";
 ?>

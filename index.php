@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/default.css">
 
 <html>
+
 	<head>
 		<title>order pizza by metaaa</title>
 	</head>
@@ -36,5 +37,7 @@
 				<div id="footerRight" class="divFooterRight"></div>
 			</div>
 		</div>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script  src="scripts/login_form.js"></script>
 	</body>
 </html>

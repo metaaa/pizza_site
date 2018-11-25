@@ -1,55 +1,45 @@
 <?php
 	//include config
     include "../config.php";
+    $connection = new mysqli("localhost", "metaaa", "admin123pws", "pizza_site");
+    //check connection
+    if ($connection->connect_errno){
+        echo ("Connection failed: " . $connection->connect_error);
+    }
 	//processing the data when form is submitted
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		//username & password have been sent
 		$username = mysqli_real_escape_string($connection, $_POST['username']);
-		$password = mysqli_real_escape_string($connection, $_POST['paassword']);
+		$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 		//select the user if it's exist
-		$sql = "SELECT username,password FROM users WHERE username = '$username' and password = '$password'";
-		$selectUser =  mysqli_query($connection, $sql);
-		$userFound = mysqli_num_rows(mysqli_fetch_array($selectUser, MYSQLI_ASSOC));
-
-		//if login found ($result = 1)
-		if ($username == $userFound["username"] && $password == $userFound["password"]) {
-			header('Location: /pizza_site/content-files/menu.php');
+		$sqlQuery = "SELECT id,username,password,admin FROM users WHERE username = '$username' and password = '$password'";
+		$queryResult = $connection->query($sqlQuery);
+		//if there was any result
+		if ($queryResult->num_rows > 0){
+            $resultRow = $queryResult->fetch_assoc();
+            //if login found ($userSelect = 1)
+            if ($username == $resultRow["username"] && $password == $resultRow["password"]) {
+                header('Location: /pizza_site/content-files/menu.php');
+            }
 		} else {
-			echo "Wrong ussername or password!";
-		}
+            echo "Wrong username or password!";
+        }
 	}
 ?>
 
-    <script type="text/javascript">
-        $('.message a').click(function(){
-            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-        });
-</script>
-
-
-
-		<div id="loginContainer" class="loginContainer">
-			<h2>Login</h2>
-			<form action="" method="post">
-				<label>Username</label><input type="text" name="username" class="box"/><br>
-				<label>Password</label><input type="password" name="password" class="box"/><br>
-				<input type="submit" value="Submit"/><br>
-			</form>
-        </div>
-
-<div class="login-page">
-    <div class="form">
-        <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
+<div class="loginPage">
+    <div class="logRegForm">
+        <form action="" class="register-form" method="POST">
+            <input type="text" placeholder="username" name="regUsername"/>
+            <input type="password" placeholder="password" name="regPassword"/>
+            <input type="text" placeholder="email address" name="regEmail"/>
             <button>create</button>
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
+        <form action="" class="login-form" method="POST">
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
             <button>login</button>
             <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
