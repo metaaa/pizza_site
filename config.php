@@ -12,4 +12,3 @@
     }
 
     //include_once "setup.php";
-?>
