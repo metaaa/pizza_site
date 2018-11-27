@@ -31,5 +31,32 @@
 	}
 	mysqli_error($db);
 	//closes connection
-	mysqli_close($db);*/
+	mysqli_close($db);
+
+
+
+
+
+	CREATE TABLE pizzas(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(60) NOT NULL,
+    description TEXT NOT NULL,
+    imageLink TEXT,
+    price INT NOT NULL);
+
+    delimiter ;;
+	use 'pizza-site' ;;
+    create
+	definer 'metaaa'@'localhost'
+	trigger 'link_change'
+    before insert
+	on 'pizzas'
+    for each row
+    begin
+    	if (NEW.imageLink is null)
+	then
+        set NEW.imageLink = 'images/pizzas/default.jpg'
+        end if;
+    end; ;;
+    delimiter;    */
 ?>

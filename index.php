@@ -23,7 +23,20 @@
 			<div id="content" class="divContent">
 				<div id="leftColumn" class="divLeftColumn">
 					<?php
-						include 'content-files/article.php';
+                    //set the content for the pages
+                    $pagesDir = 'content-files';
+                    if (!empty($_GET['page'])){
+                        $pages = scandir($pagesDir,0);
+                        unset($pages[0], $pages[1]);
+                        $page =  $_GET['page'];
+                        if (in_array($page . '.php', $pages)){
+                            include ($pagesDir . '/' . $page . '.php');
+                        } else {
+                            echo "Page not found...";
+                        }
+                    } else{
+                        include ($pagesDir . '/home.php');
+                    }
 					?>
 				</div>
 				<div id="rightColumn" class="divRightColumn">

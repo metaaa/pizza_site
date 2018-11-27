@@ -2,25 +2,24 @@
 
 $menuItems = [
 	[
-		'menuText' => 'Home',
+		'menuText' => 'home',
 		'order'    => '1'
 	],
 	[
-		'menuText' => 'Pizza',
+		'menuText' => 'pizza',
 		'order'    => '2'
 	],
 	[
-		'menuText' => 'Information',
+		'menuText' => 'information',
 		'order'    => '3'
 	],
 	[
-		'menuText' => 'Contact',
+		'menuText' => 'contact',
 		'order'    => '4'
 	],
 ];
 $cell_width = (100 / count($menuItems));
 foreach ($menuItems as $item) {
 
-	echo '<div style="align-self: center; width: ' . $cell_width . '%">' . $item['menuText'] . "</div>";
+	echo '<div style="align-self: center; width: ' . $cell_width . '%"><a href="index.php?page=' . $item['menuText'] . '">' . $item['menuText'] . "</a></div>";
 }
-//<a href="index.php?page=' . $item['menuText'] . '"></a>

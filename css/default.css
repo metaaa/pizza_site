@@ -162,3 +162,19 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+/*Styl for the grid layout*/
+.gridContainer {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: #fff;
+	padding: 10px;
+	grid-gap: 25px;
+}
+.gridItem {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+}
