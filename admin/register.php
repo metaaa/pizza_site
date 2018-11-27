@@ -18,6 +18,7 @@ $connection = new mysqli('localhost', 'metaaa', 'admin123pws', 'pizza_site');
             $checkQueryResult = $connection->query($nameCheckQuery);
             if ($checkQueryResult->num_rows > 0){
                 $resultRow = $checkQueryResult->fetch_assoc();
+                //check whether the username or the email is taken
                 if ($regUsername == $resultRow["username"]){
                     echo("Username ('$regUsername') is taken!");
                 } else {
