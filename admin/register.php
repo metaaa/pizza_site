@@ -1,5 +1,4 @@
 <?php
-$connection = new mysqli('localhost', 'metaaa', 'admin123pws', 'pizza_site');
     //check connection
     if ($connection->connect_errno){
         echo ("Connection failed: " . $connection->connect_error);

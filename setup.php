@@ -19,7 +19,9 @@
 		$sqlQuery = "CREATE TABLE users(
 					id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 					username VARCHAR(30) NOT NULL,
-					password VARCHAR(20) NOT NULL)";
+	                email VARCHAR(60) NOT NULL,
+					password VARCHAR(20) NOT NULL,
+	                admin TINYINT(1) default 0)";
 	}
 	if (mysqli_query($db, $sqlQuery)){
 		echo "Table created succesfully.";
