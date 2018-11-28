@@ -1,5 +1,5 @@
 <p>&nbsp;</p>
-<h1>Pizzas</h1>
+<p id="pageTitle" class="pageTitle">Our Pizzas</p>
 <div class="gridContainer">
     <?php
         //select all the pizzas from the db
@@ -11,7 +11,7 @@
                 $resultRow = $queryResult->fetch_assoc();
                 echo '<div class="gridItem">' .
                     '<img src="' . $resultRow['imageLink'] . '">' .
-                    '<h6>' . $resultRow['name'] . '</h6>'
+                    '<strong>' . $resultRow['name'] . '</strong><br>'
                     . '</div>';
             }
         }
