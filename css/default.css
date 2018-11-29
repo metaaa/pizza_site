@@ -1,3 +1,6 @@
+/*helpful guides:  https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 /*Body properties*/
@@ -30,10 +33,44 @@
 /*Main menu*/
 .divMainMenu{
 	height: 50px;
-	display: flex;
-	flex-direction: row;
-	position: relative;
+    width: 100%;
+    padding: 0 auto;
+    margin: 0 auto;
 }
+
+.divMainMenu ul {
+    display: block;
+    background: #ddd;
+}
+
+.divMainMenu ul li {
+    height: 50px;
+    line-height: 50px;
+    list-style: none;
+    display: inline-block;
+
+}
+
+.divMainMenu ul#mainMenuList.mainMenuList{
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+}
+
+.divMainMenu a:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.divMainMenu a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+.divMainMenu a:hover {
+    text-decoration: none;
+    color: #800000;
+}
+
 /*divider style*/
 .divDivider{
 	width: 100%;
@@ -165,13 +202,13 @@ body {
 
 /*Styl for the grid layout*/
 .gridContainer {
-	grid-template-columns: auto auto auto;
+
 	background-color: #fff;
 	padding: 10px;
-	grid-gap: 25px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 .gridItem {
 	width: 100%;
@@ -179,10 +216,22 @@ body {
 	padding: 20px;
 	font-size: 30px;
 	text-align: center;
-	flex: 1 0 21%;
+	flex: 0 0 21%;
+	align-self: baseline;
+
+}
+
+.gridItem div {
+	width: 310px;
 	-webkit-box-shadow: 3px 3px 15px -1px #000000;
 	box-shadow: 3px 3px 15px -1px #000000;
 }
+
+.gridItem img {
+	width: 300px;
+	height: 170px;
+}
+
 .pageTitle {
 	font-family: "Roboto", sans-serif;
 	font-size: 30px;

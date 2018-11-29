@@ -9,10 +9,10 @@
             $countOfResults = $queryResult->num_rows;
             for ($i = 0; $i < $countOfResults; $i++){
                 $resultRow = $queryResult->fetch_assoc();
-                echo '<div class="gridItem">' .
+                echo '<div class="gridItem"> <div>' .
                     '<img src="' . $resultRow['imageLink'] . '">' .
                     '<strong>' . $resultRow['name'] . '</strong><br>'
-                    . '</div>';
+                    . '</div></div>';
             }
         }
     ?>

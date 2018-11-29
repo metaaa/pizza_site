@@ -15,9 +15,11 @@
 		<div id="siteArea" class="divSiteArea">
 			<div id="header" class="divHeader"></div>
 			<div id="mainMenu" class="divMainMenu">
-				<?php
-					include 'content-files/menu.php';
-				?>
+                <ul class="mainMenuList" id="mainMenuList">
+                    <?php
+                        include 'content-files/menu.php';
+                    ?>
+                </ul>
 			</div>
 			<div class="divDivider" ></div>
 			<div id="content" class="divContent">
@@ -42,7 +44,7 @@
 				<div id="rightColumn" class="divRightColumn">
                     <div class="loginPage">
                         <div class="logRegForm">
-                            <form action="" class="register-form" method="POST">
+                            <form action="" class="register-form" id="register-form" method="POST">
                                 <input name="regUsername" placeholder="username" type="text"/>
                                 <input name="regPassword" placeholder="password" type="password"/>
                                 <input name="regEmail" placeholder="email address" type="text"/>
@@ -70,7 +72,7 @@
 				<div id="footerRight" class="divFooterRight"></div>
 			</div>
 		</div>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
         <script  src="scripts/login_form.js"></script>
 	</body>
 </html>
