@@ -18,9 +18,18 @@ $menuItems = [
 		'order'    => '4'
 	],
 ];
+//count of menu items
 $cell_width = (100 / count($menuItems));
-foreach ($menuItems as $item) {
+//set different class to active menuitem
+$page =  $_GET['page'];
 
+foreach ($menuItems as $item) {
 	//echo '<div style="align-self: center; width: ' . $cell_width . '%"><a href="index.php?page=' . $item['menuText'] . '">' . $item['menuText'] . "</a></div>";
-    echo '<li style="width: ' . $cell_width . '%"><a href="index.php?page=' . $item['menuText'] . '">' . $item['menuText'] . '</a>';
+    echo '<li ';
+
+    if ($page == $item['menuText']){
+        echo 'class="selectedMenuItem" ';
+    }
+
+    echo 'style="width: ' . $cell_width . '%"><a href="index.php?page=' . $item['menuText'] . '">' . $item['menuText'] . '</a>';
 }

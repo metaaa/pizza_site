@@ -1,4 +1,6 @@
 <?php
+    //if login data is correct start session
+    session_start();
     //check connection
     if ($connection->connect_errno){
         echo ("Connection failed: " . $connection->connect_error);
@@ -29,7 +31,10 @@
             } else {
                 $regQuery = "INSERT INTO `users` (`id`, `username`, `email`, `password`, `admin`) VALUES (NULL, '$regUsername', '$regEmail', '$regPassword', NULL)";
                 $connection->query($regQuery);
-                header('Location:admin/admin.php');
+                //setting up session
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $username;
+                header('Location:admin/user_admin.php');
             }
         }
     }

@@ -44,7 +44,7 @@
     imageLink TEXT,
     price INT NOT NULL);
 
-    delimiter ;;
+    delimiter //
 	use 'pizza-site' ;;
     create
 	definer 'metaaa'@'localhost'
@@ -57,6 +57,6 @@
 	then
         set NEW.imageLink = 'images/pizzas/default.jpg'
         end if;
-    end; ;;
+    end; //
     delimiter;    */
 ?>

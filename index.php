@@ -1,5 +1,18 @@
 <?php
 	require_once 'config.php';
+	session_start();
+	//configuring session timeout
+	//getting server time
+	$time = $_SERVER['REQUEST_TIME'];
+	$timeout_duration = 120;
+	//look for latest activity timestamp
+    if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+        session_unset();
+        session_destroy();
+        session_start();
+        header('Location: index.php');
+    }
+    $_SESSION['LAST_ACTIVITY'] = $time;
 ?>
 
 <!DOCTYPE html>
@@ -42,29 +55,13 @@
 					?>
 				</div>
 				<div id="rightColumn" class="divRightColumn">
-                    <div class="loginPage">
-                        <div class="logRegForm">
-                            <form action="" class="register-form" id="register-form" method="POST">
-                                <input name="regUsername" placeholder="username" type="text"/>
-                                <input name="regPassword" placeholder="password" type="password"/>
-                                <input name="regEmail" placeholder="email address" type="text"/>
-                                <?php
-                                include 'admin/register.php';
-                                ?>
-                                <button>create</button>
-                                <p class="message">Already registered? <a href="#">Sign In</a></p>
-                            </form>
-                            <form action="" class="login-form" method="POST">
-                                <input name="username" placeholder="username" type="text"/>
-                                <input name="password" placeholder="password" type="password"/>
-                                <?php
-                                include 'admin/login.php';
-                                ?>
-                                <button>login</button>
-                                <p class="message">Not registered? <a href="#">Create an account</a></p>
-                            </form>
-                        </div>
-                    </div>
+                    <?php
+                        if ($_SESSION['loggedin'] == false){
+                            include 'admin/login_form.php';
+                        } else {
+                            echo 'You are logged in as ' . $_SESSION['username'] . '.</br>For Log out click <a href="admin/logout.php">here</a>';
+                        }
+                    ?>
 				</div>
 			</div>
 			<div id="footer" class="divFooter">

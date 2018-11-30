@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 11/26/18
- * Time: 11:53 PM
- */
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
+} else {
+    echo "Please log in first to see this page.";
+}

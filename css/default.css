@@ -59,6 +59,7 @@
 .divMainMenu a:link {
     text-decoration: none;
     color: #000000;
+	letter-spacing: 4px;
 }
 
 .divMainMenu a:visited {
@@ -68,7 +69,15 @@
 
 .divMainMenu a:hover {
     text-decoration: none;
-    color: #800000;
+    color: #000000;
+}
+
+ul#mainMenuList li:hover {
+	background-color: #ccc;
+}
+
+li.selectedMenuItem {
+	background-color: #ccc;
 }
 
 /*divider style*/
