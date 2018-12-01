@@ -1,5 +1,6 @@
 <p>&nbsp;</p>
 <p id="pageTitle" class="pageTitle">Our Pizzas</p>
+<p>&nbsp;</p>
 <div class="gridContainer">
     <?php
         //select all the pizzas from the db
@@ -9,10 +10,24 @@
             $countOfResults = $queryResult->num_rows;
             for ($i = 0; $i < $countOfResults; $i++){
                 $resultRow = $queryResult->fetch_assoc();
-                echo '<div class="gridItem"> <div>' .
-                    '<img src="' . $resultRow['imageLink'] . '">' .
-                    '<strong>' . $resultRow['name'] . '</strong><br>'
-                    . '</div></div>';
+                echo '<div class="gridItem">
+                        <table>
+                            <tr>
+                                <td colspan="3"><img class="pizzaImage" src="' . $resultRow['imageLink'] . '"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="pizzaName">' . $resultRow['name'] . '</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="pizzaDesc">' . $resultRow['description'] . '</td>
+                            </tr>
+                            <tr  class="pizzaPrice">
+                                <td>Price: </td>
+                                <td class="pizzaPriceText">' . $resultRow['price'] . ' Ft</td>
+                                <td class="pizzaCartImage"><img src="images/shop/cart.png"></td>
+                            </tr>
+                        </table>
+                    </div>';
             }
         }
     ?>

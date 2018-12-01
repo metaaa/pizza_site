@@ -1,7 +1,8 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: root
- * Date: 11/27/18
- * Time: 9:10 PM
- */
+<p>&nbsp;</p>
+<p id="pageTitle" class="pageTitle">Welcome!</p>
+<p>&nbsp;</p>
+<div id="homeContent" class="homeContent">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt, augue sed fringilla finibus, augue elit viverra justo, dictum rutrum nibh nunc et sem. Phasellus in consectetur nulla. Nam condimentum tempus nibh, sit amet luctus eros suscipit non. Vivamus vitae tellus semper, laoreet diam ut, dapibus nisl. Quisque id posuere arcu. Mauris et massa tristique, varius purus ac, dictum sapien. Nulla ac vestibulum risus. Pellentesque bibendum sem elit, vitae efficitur nisl luctus quis. In laoreet, justo id ultricies sodales, ante lacus bibendum lorem, eu egestas tellus ante eget felis. Donec pretium sed leo vitae vulputate. Nullam maximus, ante lobortis porttitor ultricies, lectus lectus sagittis orci, et egestas justo odio in libero. Ut sapien lectus, posuere ac convallis vel, dapibus quis nunc. Nullam sagittis turpis non posuere elementum. Praesent eu maximus nibh, vitae finibus tellus. Pellentesque bibendum feugiat eleifend.</p>
+<p>Aliquam vel nunc sit amet nulla egestas malesuada nec vel elit. Mauris mattis quis ex nec aliquam. Pellentesque suscipit, enim id tempor aliquet, libero nulla interdum ex, nec finibus velit metus at neque. Praesent ut molestie quam, at iaculis tortor. In hac habitasse platea dictumst. Donec molestie, leo non ornare elementum, odio enim pellentesque nibh, quis cursus urna dolor non enim. Mauris eu diam nec felis semper lobortis. Sed volutpat mollis dui, eu posuere mi congue sed. Duis vel imperdiet leo. Vestibulum condimentum magna nisl, ut sodales turpis consequat sit amet. Fusce sed justo lacus. Integer ultrices, mauris sed fringilla placerat, purus neque consectetur est, vel vulputate magna eros in purus. In accumsan nunc id justo venenatis laoreet.</p>
+<p>Donec commodo ex eleifend dapibus mattis. Mauris nibh quam, viverra eu varius aliquam, eleifend vestibulum massa. Curabitur dui nisl, volutpat in sodales ut, facilisis ac lacus. Aenean ac lorem in ligula fermentum vestibulum. Fusce at urna at nibh mollis accumsan. Nunc accumsan nisl eget dui ullamcorper, et feugiat turpis euismod. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam id dictum erat. Proin a rutrum enim. Cras aliquam eleifend elit id consequat. Sed vestibulum elit ac gravida tristique.</p>
+</div>

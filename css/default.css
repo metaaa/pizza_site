@@ -25,10 +25,11 @@
 .divHeader{
 	width: 100%;
 	height: 200px;
-	background-image: url('../images/header-image/pizza.jpg');
+	background-image: url('../images/header-image/pizza.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	position: relative;
+	background-clip: inherit;
 }
 /*Main menu*/
 .divMainMenu{
@@ -106,6 +107,23 @@ li.selectedMenuItem {
 	min-height: 250px;
 	background-color: #FFF;
 	text-align: left;
+}
+
+.pageTitle {
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	letter-spacing: 4px;
+	word-spacing: 0px;
+	color: #000000;
+	font-weight: 700;
+	font-style: italic;
+	font-variant: small-caps;
+	text-align: center;
+}
+
+.homeContent {
+	padding: 0px 50px 0px 50px;
+	text-align: justify;
 }
 
 /*login form css*/
@@ -209,9 +227,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/*Styl for the grid layout*/
+/*Style for the grid layout*/
 .gridContainer {
-
 	background-color: #fff;
 	padding: 10px;
 	display: flex;
@@ -227,7 +244,10 @@ body {
 	text-align: center;
 	flex: 0 0 21%;
 	align-self: baseline;
-
+}
+.gridItem table {
+	width: 100%;
+	border-spacing: 0px;
 }
 
 .gridItem div {
@@ -236,21 +256,39 @@ body {
 	box-shadow: 3px 3px 15px -1px #000000;
 }
 
-.gridItem img {
+.pizzaImage {
 	width: 300px;
 	height: 170px;
 }
 
-.pageTitle {
-	font-family: "Roboto", sans-serif;
-	font-size: 30px;
-	letter-spacing: 0px;
-	word-spacing: 0px;
-	color: #000000;
-	font-weight: 700;
-	font-style: normal;
-	text-decoration: underline solid #000000;
+.pizzaName {
+	background-color: #ddd;
+	font-size: 25px;
+	letter-spacing: 4px;
+	padding: 10px 0px 10px 0px;
 	font-variant: small-caps;
-	text-transform: none;
-	text-align: center;
 }
+
+.pizzaDesc {
+	background-color: #e8e8e8;
+	font-size: 20px;
+	padding: 10px 0px 10px 0px;
+	font-style: italic;
+}
+
+.pizzaPrice {
+	height: 48px;
+	background-color: #f2f2f2;
+	font-size: 20px;
+}
+
+.pizzaPriceText {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.pizzaCartImage {
+	background-color: #afdd9e;
+	width: 48px;
+}
+

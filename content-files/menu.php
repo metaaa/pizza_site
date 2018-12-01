@@ -3,19 +3,23 @@
 $menuItems = [
 	[
 		'menuText' => 'home',
-		'order'    => '1'
+		'order'    => '1',
+        'menuTitle' => 'Welcome!'
 	],
 	[
 		'menuText' => 'pizza',
-		'order'    => '2'
+		'order'    => '2',
+        'menuTitle' => 'Our Pizzas'
 	],
 	[
 		'menuText' => 'information',
-		'order'    => '3'
+		'order'    => '3',
+        'menuTitle' => 'Information'
 	],
 	[
 		'menuText' => 'contact',
-		'order'    => '4'
+		'order'    => '4',
+        'menuTitle' => 'Contact Us'
 	],
 ];
 //count of menu items

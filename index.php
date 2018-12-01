@@ -4,7 +4,7 @@
 	//configuring session timeout
 	//getting server time
 	$time = $_SERVER['REQUEST_TIME'];
-	$timeout_duration = 120;
+	$timeout_duration = 1800;
 	//look for latest activity timestamp
     if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
         session_unset();
