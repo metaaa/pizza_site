@@ -1,7 +1,39 @@
-/*$('.message a').click(function(){
-    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});*/
+/*
+$(document).ready(function(){
+    $('form').on('submit', function(e){
+        console.log('is it working?')
+        if (!valid) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert('asd');
+        }
+    })
+})
+*/
 
+$('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+
+
+/*
+function SubmitRegData(){
+    var username = $("regUsername").val();
+    var email = $("regEmail").val();
+    var password = $("regPassword").val();
+    $.post("../admin/admin_functions.php", {regUsername: username, regEmail: email, regPassword: password},
+        function(){
+        console.log(username);
+        $('register-form')[0].reset();
+        });
+}
+*/
+
+//addprevent default
+
+
+
+/*
 function ajax(url, options, modal) {
     var defaults = {
         type: 'POST',
@@ -54,4 +86,4 @@ ajax($this.data('href'), options)
     })
     .then(function ajaxFinally(res) {
 
-    });
+    });*/

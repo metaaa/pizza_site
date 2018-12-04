@@ -33,8 +33,8 @@
                 $connection->query($regQuery);
                 //setting up session
                 $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
-                header('Location:admin/user_admin.php');
+                $_SESSION['username'] = $regUsername;
+                header('Location:admin/index.php');
             }
         }
     }

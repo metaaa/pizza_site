@@ -22,11 +22,8 @@
                 //setting up session
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
-                if ($resultRow['admin'] == 1) {
-                    header('Location: /pizza_site/admin/admin.php');
-                } else {
-                    header('Location: /pizza_site/admin/user_admin.php');
-                }
+                $_SESSION['admin'] = $resultRow['admin'];
+                header('Location:admin/index.php');
             }
 		} else {
             echo "Wrong username or password!";
