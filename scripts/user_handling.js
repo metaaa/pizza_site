@@ -1,4 +1,4 @@
-
+/*
 function promoteUser() {
     var xmlhttp;
     if (window.XMLHttpRequest)
@@ -19,7 +19,7 @@ function promoteUser() {
     xmlhttp.open("POST","../admin/admin_functions.php",true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("method=promoteUser");
-}
+}*/
 /*
 function downgradeUser()
 {
@@ -90,3 +90,50 @@ $.ajax({
         console.log(textStatus);// if there is an error
     }
 });*/
+
+/*$urlPromotable = function(name){
+    var result = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return result[1] || 0;
+}*/
+
+function getIdFromUrl () {
+    $(".usersList a").click(function () {
+            var userId = $.QueryString("id");
+            alert(userId);
+            return userId;
+        });
+}
+
+
+function promoteUser(){
+    $.ajax({
+        url: "/pizza_site/admin/admin_functions.php",
+        type: "POST",
+        data: {promote: "yes"},
+        success: function (data) {
+            //var id = getIdFromUrl();
+            console.log("data");
+            alert("User promoted!");
+        }
+    });
+}
+
+
+function downgradeUser(){
+    $.ajax({
+        url: "/pizza_site/admin/admin_functions.php",
+        type: "POST",
+        data: {downgrade: "yes"},
+        success: function (data) {
+            getIdFromUrl();
+            console.log("data");
+            alert("User downgraded!");
+
+        }
+    });
+}
+
+
+// possible solution: https://stackoverflow.com/questions/31665575/sql-query-without-refresh
+
+//OR   https://stackoverflow.com/questions/42453785/update-the-value-of-select-box-with-php-mysql-jquery-ajax

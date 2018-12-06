@@ -4,24 +4,23 @@
                                 <input name="regUsername" placeholder="username" type="text" autocomplete="username"/>
                                 <input name="regPassword" placeholder="password" type="password" autocomplete="current-password"/>
                                 <input name="regEmail" placeholder="email address" type="text" autocomplete="email"/>
-                                <div id="registerError" class="registerError">
                                     <?php
                                         include "register.php";
                                     ?>
-                                    </div>
-                                <button>create</button>
+                                <button name="submit" type="submit" value="Submit">create</button>
                                 <p class="message">Already registered? <a href="#">Sign In</a></p>
                             </form>
                             <form action="" class="login-form" method="POST">
                                 <input name="username" placeholder="username" type="text" autocomplete="username"/>
                                 <input name="password" placeholder="password" type="password" autocomplete="current-password"/>
-                                <div id="loginError" class="loginError">
                                     <?php
                                         include "login.php";
                                     ?>
-                                </div>
-                                <button>login</button>
+                                <button name="submit" type="submit" value="Submit">login</button>
                                 <p class="message">Not registered? <a href="#">Create an account</a></p>
                             </form>
+                            <div id="errorMessage" class="errorMessage" style="display: none">
+                                <p>Invalid data!</p>
+                            </div>
                         </div>
                     </div>

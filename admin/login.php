@@ -10,7 +10,7 @@
 		//username & password have been sent
 		$username = mysqli_real_escape_string($connection, $_POST['username']);
 		$password = mysqli_real_escape_string($connection, $_POST['password']);
-
+		$errorMsg = "";
 		//select the user if it's exist
 		$sqlQuery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$queryResult = $connection->query($sqlQuery);
@@ -26,6 +26,6 @@
                 header('Location:admin/index.php');
             }
 		} else {
-            echo "Wrong username or password!";
+            $errorMsg = "Wrong username or password!";
         }
 	}

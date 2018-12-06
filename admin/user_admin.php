@@ -2,7 +2,7 @@
     session_start();
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         //request data from the database which can be seen by the user
-
+        include 'admin_functions.php';
 
     } else {
         header('Location: ../index.php');
@@ -23,7 +23,6 @@ asd
         </section>
         <section id="content2">
             <?php
-                include 'admin_functions.php';
                 listUsers();
             ?>
         </section>

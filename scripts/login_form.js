@@ -1,36 +1,27 @@
-/*
-$(document).ready(function(){
-    $('form').on('submit', function(e){
-        console.log('is it working?')
-        if (!valid) {
-            e.preventDefault();
-            e.stopPropagation();
-            alert('asd');
-        }
-    })
-})
-*/
+$(function () {
+    $('form').on('submit', function (e){
+        e.preventDefault();
+        $('#errorMessage').show();
+        console.log('failed');
+        $.ajax({
+            type: 'post',
+            url: 'index.php',
+            data: $('form').serialize(),
+            success: function () {
+                $('.errorMessage').delay(3000).fadeOut('slow');
+                console.log('successful!');
+            },
+            error : function(xhr, textStatus, errorThrown) {
+                console.log("error: " + textStatus);
+            }
+        });
+    });
+});
 
 $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    $('.errorMessage').hide();
 });
-
-
-/*
-function SubmitRegData(){
-    var username = $("regUsername").val();
-    var email = $("regEmail").val();
-    var password = $("regPassword").val();
-    $.post("../admin/admin_functions.php", {regUsername: username, regEmail: email, regPassword: password},
-        function(){
-        console.log(username);
-        $('register-form')[0].reset();
-        });
-}
-*/
-
-//addprevent default
-
 
 
 /*

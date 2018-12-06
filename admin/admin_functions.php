@@ -11,7 +11,7 @@ function listUsers() {
     global $connection;
     $userListQuery = "SELECT * FROM users";
     $userListResult = $connection->query($userListQuery);
-    echo '<table id="usersList" class="usersListTable">
+    echo '<table id="usersListTable" class="usersListTable">
         <tr>
             <th>id</th>
             <th>username</th>
@@ -31,10 +31,10 @@ function listUsers() {
         if ($usersRow['admin'] == 1 && $usersRow['id'] == 1){
             $promotable = '<img src="../images/other/icon_minus.png">';
         } elseif ($usersRow['admin'] == 1 && $usersRow['id'] != 1){
-            $promotable = '<a href="#"' . $usersRow['id'] . '" onclick=""><img src="../images/other/icon_down.png"></a>';
+            $promotable = '<a href="?id=' . $usersRow['id'] . '" onclick="downgradeUser();"><img src="../images/other/icon_down.png"></a>';
             //downgradeToUser($usersRow['id']);
         } else {
-            $promotable = '<a href="#"' . $usersRow['id'] . '" onclick="promoteUser();"><img src="../images/other/icon_up.png"></a>';
+            $promotable = '<a href="?id=' . $usersRow['id'] . '" onclick="getIdFromUrl();"><img src="../images/other/icon_up.png"></a>';
             //promoteToAdmin($usersRow['id']);
         }
         //print out the table with the data
@@ -49,32 +49,33 @@ function listUsers() {
     }
     echo '</tbody></table>';
     //make upgrade/downgrade buttons work for jquery post method
-    if (isset($_POST['method'])){
-        switch ($_POST['method']){
+    //if (isset($_POST['method'])){
+
+        /*switch ($_POST['method']){
             case 'promoteUser':
                 promoteToAdmin(2);
                 break;
             case 'downgradeUser':
                 downgradeToUser(2);
                 break;
-        }
-    }
+        }*/
+    //}
 }
+$userId = $_GET['id'];
+echo '<script>console.log(' . json_encode($userId) . ')</script>';
 
-function promoteToAdmin($id){
+function promoteToAdmin($userId){
     global $connection;
-    $query = "UPDATE users SET admin = 1 WHERE id = '$id'";
+    $query = "UPDATE users SET admin = 1 WHERE id = '$userId'";
     $connection->query($query);
 }
 
-function downgradeToUser($id){
+function downgradeToUser($userId){
     global $connection;
-    $query = "UPDATE users SET admin = NULL WHERE id = '$id'";
+    $query = "UPDATE users SET admin = NULL WHERE id = '$userId'";
     $connection->query($query);
 }
 
 /*function listOrders(){
     global $connection;
-
-
 }*/
