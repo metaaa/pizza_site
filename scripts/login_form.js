@@ -10,9 +10,6 @@ $(function () {
             success: function () {
                 $('.errorMessage').delay(3000).fadeOut('slow');
                 console.log('successful!');
-            },
-            error : function(xhr, textStatus, errorThrown) {
-                console.log("error: " + textStatus);
             }
         });
     });
@@ -22,6 +19,46 @@ $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
     $('.errorMessage').hide();
 });
+
+
+
+/*function do_login()
+{
+    var email=$("#emailid").val();
+    var pass=$("#password").val();
+    if(email!="" && pass!="")
+    {
+        $("#loading_spinner").css({"display":"block"});
+        $.ajax
+        ({
+            type:'post',
+            url:'do_login.php',
+            data:{
+                do_login:"do_login",
+                email:email,
+                password:pass
+            },
+            success:function(response) {
+                if(response=="success")
+                {
+                    window.location.href="index.php";
+                }
+                else
+                {
+                    $("#loading_spinner").css({"display":"none"});
+                    alert("Wrong Details");
+                }
+            }
+        });
+    }
+
+    else
+    {
+        alert("Please Fill All The Details");
+    }
+
+    return false;
+}*/
 
 
 /*
