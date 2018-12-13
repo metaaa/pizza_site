@@ -1,3 +1,4 @@
+/*
 $(function () {
     $('form').on('submit', function (e){
         e.preventDefault();
@@ -14,51 +15,45 @@ $(function () {
         });
     });
 });
-
+*/
 $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    $('.errorMessage').hide();
+    //$('.errorMessage').hide();
 });
 
+//http://talkerscode.com/webtricks/ajax-login-form-using-jquery-php-and-mysql.php
 
-
-/*function do_login()
-{
-    var email=$("#emailid").val();
-    var pass=$("#password").val();
-    if(email!="" && pass!="")
+function login(){
+    var myData = $("#login-form :input").serializeArray();
+    if(myData !== "")
     {
-        $("#loading_spinner").css({"display":"block"});
+        //console.log(myData);
+        //$("#loading_spinner").css({"display":"block"});
         $.ajax
         ({
-            type:'post',
-            url:'do_login.php',
-            data:{
-                do_login:"do_login",
-                email:email,
-                password:pass
-            },
+            type:'POST',
+            url:'admin/login.php',
+            data: myData,
             success:function(response) {
-                if(response=="success")
+                if(response === "success")
                 {
-                    window.location.href="index.php";
+                    window.location.href="admin/index.php";
+                    console.dir(myData);
                 }
                 else
                 {
-                    $("#loading_spinner").css({"display":"none"});
-                    alert("Wrong Details");
+                    console.dir(myData);
+                    console.log("error", response);
                 }
             }
         });
     }
-
     else
     {
         alert("Please Fill All The Details");
     }
-
     return false;
-}*/
+}
 
 
 /*

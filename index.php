@@ -55,13 +55,31 @@
 					?>
 				</div>
 				<div id="rightColumn" class="divRightColumn">
-                    <?php
-                        if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false){
+                    <div class="loginPage">
+                        <div id="logRegForm" class="logRegForm">
+                            <form action="admin/register.php" class="register-form" id="register-form" method="POST" onsubmit="return register();">
+                                <input id="regUsername" name="regUsername" placeholder="username" type="text" autocomplete="username"/>
+                                <input id="regPassword" name="regPassword" placeholder="password" type="password" autocomplete="current-password"/>
+                                <input id="regEmail" name="regEmail" placeholder="email address" type="text" autocomplete="email"/>
+                                <button id="buttonReg" name="submit" type="submit" value="Submit">create</button>
+                                <p class="message">Already registered? <a href="#">Sign In</a></p>
+                            </form>
+                            <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="return login();">
+                                <input id="usernameLogin" name="username" placeholder="username" type="text" autocomplete="username"/>
+                                <input id="passwordLogin" name="password" placeholder="password" type="password" autocomplete="current-password"/>
+                                <input id="buttonLogin" name="submit" type="submit" value="Login">login</input>
+                                <p class="message">Not registered? <a href="#">Create an account</a></p>
+                            </form>
+                            <div id="errorMessage" class="errorMessage" style="display: none">
+                                <p>Invalid data!</p>
+                            </div>
+                        </div>
+                    </div>
+<!--                        if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false){
                             include 'admin/login_form.php';
                         } else {
                             echo 'You are logged in as <a href="admin/">' . $_SESSION['username'] . '</a>.</br>For Log out click <a href="admin/logout.php">here</a>';
-                        }
-                    ?>
+                        }-->
 				</div>
 			</div>
 			<div id="footer" class="divFooter">
