@@ -33,7 +33,7 @@ function login(){
         console.dir(myData);
         $.ajax
         ({
-            type:'GET',
+            type:'POST',
             url:'admin/login.php',
             //dataType:'json',
             data: myData,
