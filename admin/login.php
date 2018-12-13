@@ -6,10 +6,11 @@
         echo ("Connection failed: " . $connection->connect_error);
     }
 	//processing the data when form is submitted
-	if(isset($_POST['login'])){
+	//if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_GET['username'] !== ""){
 		//username & password have been sent
-		$username = mysqli_real_escape_string($connection, $_POST['username']);
-		$password = mysqli_real_escape_string($connection, $_POST['password']);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 		//select the user if it's exist
 		$sqlQuery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
 		$queryResult = $connection->query($sqlQuery);
@@ -22,7 +23,10 @@
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $username;
                 $_SESSION['admin'] = $resultRow['admin'];
+                echo "success";
             }
 		}
-	}
-	exit();
+	} else {
+        echo "false";
+    }
+

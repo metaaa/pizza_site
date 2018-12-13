@@ -24,27 +24,37 @@ $('.message a').click(function(){
 //http://talkerscode.com/webtricks/ajax-login-form-using-jquery-php-and-mysql.php
 
 function login(){
+    /*var username = $("#usernameLogin").val();
+    var password = $("#passwordLogin").val();
+    if(username !== "" && password !== "")*/
     var myData = $("#login-form :input").serializeArray();
-    if(myData !== "")
+    if (myData !== "")
     {
-        //console.log(myData);
-        //$("#loading_spinner").css({"display":"block"});
+        console.dir(myData);
         $.ajax
         ({
-            type:'POST',
+            type:'GET',
             url:'admin/login.php',
+            //dataType:'json',
             data: myData,
+                /*{
+                login: "login",
+                username: username,
+                password: password
+            },*/
             success:function(response) {
-                if(response === "success")
+                if(JSON.stringify(response) === "success")
                 {
+                    console.log("success");
                     window.location.href="admin/index.php";
-                    console.dir(myData);
                 }
                 else
                 {
-                    console.dir(myData);
                     console.log("error", response);
                 }
+            },
+            error: (error) => {
+                console.log(JSON.stringify(error));
             }
         });
     }
