@@ -27,7 +27,7 @@ function login(){
     /*var username = $("#usernameLogin").val();
     var password = $("#passwordLogin").val();
     if(username !== "" && password !== "")*/
-    var myData = $("#login-form :input").serializeArray();
+    var myData = $("#login-form :input");
     if (myData !== "")
     {
         console.dir(myData);
