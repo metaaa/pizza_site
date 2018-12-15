@@ -24,19 +24,24 @@ $('.message a').click(function(){
 //http://talkerscode.com/webtricks/ajax-login-form-using-jquery-php-and-mysql.php
 
 function login(){
-    /*var username = $("#usernameLogin").val();
+    var username = $("#usernameLogin").val();
     var password = $("#passwordLogin").val();
-    if(username !== "" && password !== "")*/
-    var myData = $("#login-form :input");
-    if (myData !== "")
+    if(username !== "" && password !== "")
+    //var myData = $("#login-form :input").serializeArray();
+    //if (myData !== "")
     {
-        console.dir(myData);
+        console.dir(username, password);
         $.ajax
         ({
             type:'POST',
             url:'admin/login.php',
             //dataType:'json',
-            data: myData,
+            data: {
+                username: username,
+                password: password
+            },
+            dataType: "json",
+            contentType : "application/json",
                 /*{
                 login: "login",
                 username: username,
@@ -46,7 +51,7 @@ function login(){
                 if(JSON.stringify(response) === "success")
                 {
                     console.log("success");
-                    window.location.href="admin/index.php";
+                    window.top.href="admin/index.php";
                 }
                 else
                 {

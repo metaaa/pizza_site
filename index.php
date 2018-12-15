@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="css/default.css">
+<link rel="shortcut icon" href="#" />
 
 <html>
 
@@ -64,10 +65,10 @@
                                 <button id="buttonReg" name="submit" type="submit" value="Submit">create</button>
                                 <p class="message">Already registered? <a href="#">Sign In</a></p>
                             </form>
-                            <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="return login();">
+                            <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="login()">
                                 <input id="usernameLogin" name="username" placeholder="username" type="text" autocomplete="username"/>
                                 <input id="passwordLogin" name="password" placeholder="password" type="password" autocomplete="current-password"/>
-                                <input id="buttonLogin" name="submit" type="submit" value="Login">login</input>
+                                <button id="buttonLogin" name="submit" type="submit" value="Login">login</button>
                                 <p class="message">Not registered? <a href="#">Create an account</a></p>
                             </form>
                             <div id="errorMessage" class="errorMessage" style="display: none">

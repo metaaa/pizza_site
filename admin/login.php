@@ -1,6 +1,7 @@
 <?php
     //if login data is correct start session
     session_start();
+    global $connection;
     //check connection
     if ($connection->connect_errno){
         echo ("Connection failed: " . $connection->connect_error);
@@ -11,9 +12,12 @@
 		//username & password have been sent
         $username = $_POST['username'];
         $password = $_POST['password'];
+        //var_dump($username, $password);
 		//select the user if it's exist
 		$sqlQuery = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+		//var_dump($sqlQuery);
 		$queryResult = $connection->query($sqlQuery);
+		echo "asd";
 		//if there was any result
 		if ($queryResult->num_rows > 0){
             $resultRow = $queryResult->fetch_assoc();
@@ -28,5 +32,6 @@
 		}
 	} else {
         echo "false";
+        var_dump("false", $username, $password);
     }
 
