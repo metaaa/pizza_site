@@ -1,5 +1,4 @@
 <?php
-	require_once 'config.php';
 	session_start();
 	//configuring session timeout
 	//getting server time
@@ -18,7 +17,7 @@
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="css/default.css">
-<link rel="shortcut icon" href="#" />
+<link href="favicon.ico" rel="icon" type="image/x-icon" />
 
 <html>
 
@@ -58,14 +57,14 @@
 				<div id="rightColumn" class="divRightColumn">
                     <div class="loginPage">
                         <div id="logRegForm" class="logRegForm">
-                            <form action="admin/register.php" class="register-form" id="register-form" method="POST" onsubmit="return register();">
+                            <form action="admin/register.php" class="register-form" id="register-form" method="POST" onsubmit="register(event)">
                                 <input id="regUsername" name="regUsername" placeholder="username" type="text" autocomplete="username"/>
                                 <input id="regPassword" name="regPassword" placeholder="password" type="password" autocomplete="current-password"/>
                                 <input id="regEmail" name="regEmail" placeholder="email address" type="text" autocomplete="email"/>
                                 <button id="buttonReg" name="submit" type="submit" value="Submit">create</button>
                                 <p class="message">Already registered? <a href="#">Sign In</a></p>
                             </form>
-                            <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="login()">
+                            <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="login(event)">
                                 <input id="usernameLogin" name="username" placeholder="username" type="text" autocomplete="username"/>
                                 <input id="passwordLogin" name="password" placeholder="password" type="password" autocomplete="current-password"/>
                                 <button id="buttonLogin" name="submit" type="submit" value="Login">login</button>

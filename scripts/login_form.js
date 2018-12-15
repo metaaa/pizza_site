@@ -23,14 +23,12 @@ $('.message a').click(function(){
 
 //http://talkerscode.com/webtricks/ajax-login-form-using-jquery-php-and-mysql.php
 
-function login(){
+function login(event){
+    event.preventDefault();
     var username = $("#usernameLogin").val();
     var password = $("#passwordLogin").val();
     if(username !== "" && password !== "")
-    //var myData = $("#login-form :input").serializeArray();
-    //if (myData !== "")
     {
-        console.dir(username, password);
         $.ajax
         ({
             type:'POST',
@@ -40,35 +38,58 @@ function login(){
                 username: username,
                 password: password
             },
-            dataType: "json",
-            contentType : "application/json",
-                /*{
-                login: "login",
-                username: username,
-                password: password
-            },*/
             success:function(response) {
-                if(JSON.stringify(response) === "success")
-                {
-                    console.log("success");
-                    window.top.href="admin/index.php";
-                }
-                else
-                {
-                    console.log("error", response);
+                if (response === "true"){
+                    location.href="admin/index.php";
+                } else {
+                    console.log("Response error: ", JSON.stringify(response));
                 }
             },
             error: (error) => {
-                console.log(JSON.stringify(error));
+                console.log("Error: ", JSON.stringify(error));
             }
         });
     }
-    else
-    {
+    else {
         alert("Please Fill All The Details");
     }
     return false;
 }
+
+function register(event){
+    event.preventDefault();
+    var username = $("#regUsername").val();
+    var password = $("#regPassword").val();
+    var email = $("#regEmail").val();
+    if(username !== "" && password !== "" && email !=="")
+    {
+        $.ajax
+        ({
+            type:'POST',
+            url:'admin/register.php',
+            data: {
+                username: username,
+                password: password,
+                email: email
+            },
+            success:function(response) {
+                if (response === "true"){
+                    location.href="admin/index.php";
+                } else {
+                    console.log("Response error: ", JSON.stringify(response));
+                }
+            },
+            error: (error) => {
+                console.log("Error: ", JSON.stringify(error));
+            }
+        });
+    }
+    else {
+        alert("Please Fill All The Details");
+    }
+    return false;
+}
+
 
 
 /*

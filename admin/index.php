@@ -19,7 +19,7 @@ $_SESSION['LAST_ACTIVITY'] = $time;*/
 <!DOCTYPE html>
 
 <link rel="stylesheet" type="text/css" href="../css/default.css">
-<link rel="shortcut icon" href="#" />
+<link href="../images/favicon.ico" rel="icon" type="image/x-icon">
 
 <html>
     <head>
@@ -54,6 +54,6 @@ $_SESSION['LAST_ACTIVITY'] = $time;*/
             </div>
         </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script  src="../scripts/user_handling.js"></script>
+<!--    <script  src="../scripts/user_handling.js"></script>-->
     </body>
 </html>
