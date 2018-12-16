@@ -1,21 +1,3 @@
-/*
-$(function () {
-    $('form').on('submit', function (e){
-        e.preventDefault();
-        $('#errorMessage').show();
-        console.log('failed');
-        $.ajax({
-            type: 'post',
-            url: 'index.php',
-            data: $('form').serialize(),
-            success: function () {
-                $('.errorMessage').delay(3000).fadeOut('slow');
-                console.log('successful!');
-            }
-        });
-    });
-});
-*/
 $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
     //$('.errorMessage').hide();
@@ -27,13 +9,10 @@ function login(event){
     event.preventDefault();
     var username = $("#usernameLogin").val();
     var password = $("#passwordLogin").val();
-    if(username !== "" && password !== "")
-    {
-        $.ajax
-        ({
+    if(username !== "" && password !== ""){
+        $.ajax ({
             type:'POST',
             url:'admin/login.php',
-            //dataType:'json',
             data: {
                 username: username,
                 password: password
@@ -49,8 +28,7 @@ function login(event){
                 console.log("Error: ", JSON.stringify(error));
             }
         });
-    }
-    else {
+    } else {
         alert("Please Fill All The Details");
     }
     return false;
@@ -61,10 +39,8 @@ function register(event){
     var username = $("#regUsername").val();
     var password = $("#regPassword").val();
     var email = $("#regEmail").val();
-    if(username !== "" && password !== "" && email !=="")
-    {
-        $.ajax
-        ({
+    if(username !== "" && password !== "" && email !==""){
+        $.ajax ({
             type:'POST',
             url:'admin/register.php',
             data: {
@@ -75,6 +51,12 @@ function register(event){
             success:function(response) {
                 if (response === "true"){
                     location.href="admin/index.php";
+                } else if (response === "invalid_email"){
+                    console.log("Invalid email");
+                } else if (response === "email_error"){
+                    console.log("Email is already registered!")
+                } else if (response === "username_error"){
+                    console.log("Username is taken!")
                 } else {
                     console.log("Response error: ", JSON.stringify(response));
                 }
@@ -83,8 +65,7 @@ function register(event){
                 console.log("Error: ", JSON.stringify(error));
             }
         });
-    }
-    else {
+    } else {
         alert("Please Fill All The Details");
     }
     return false;
@@ -125,14 +106,6 @@ function ajax(url, options, modal) {
     });
 }
 
-var $this = $('.message a').click(function(){
-    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
-var options = {
-    data: {
-        'id': $this.data('register-form')
-    }
-};
 
 ajax($this.data('href'), options)
     .then(function ajaxThen(res) {

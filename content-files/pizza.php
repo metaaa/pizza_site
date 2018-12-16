@@ -3,6 +3,7 @@
 <p>&nbsp;</p>
 <div class="gridContainer">
     <?php
+        require_once '../config.php';
         //select all the pizzas from the db
         $sqlQuery = "SELECT * FROM pizzas";
         $queryResult = $connection->query($sqlQuery);

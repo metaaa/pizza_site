@@ -45,57 +45,6 @@ function downgradeUser()
 
 
 
-/*function promoteUser() {
-    $.ajax({
-        type: "POST",
-        url: "../admin/admin_functions.php",
-        data: {method: 'promoteUser'},
-        /!*success: function (html) {
-            alert(html);
-        }*!/
-    });
-}*/
-
-/*function downgradeUser() {
-    $.ajax({
-        type: "POST",
-        url: "../admin/admin_functions.php",
-        data: {method: 'downgradeUser'},
-        /!*success: function (html) {
-            alert(html);
-        }*!/
-    });
-}*/
-
-/*
-https://stackoverflow.com/questions/20738329/how-to-call-a-php-function-on-the-click-of-a-button
-
-    https://stackoverflow.com/questions/19323010/execute-php-function-with-onclick
-
-
-
-    how to trigger specific php function with jquery*/
-
-
-/*
-var downgradeUser = $("#downgrade").val();
-$.ajax({
-    url : "../admin/admin_functions.php",
-    type: "POST",
-    data : {text : downgradeUser} ,
-    success: function(data, textStatus, jqXHR) {
-        console.log(data);// You can see the result which is created in chat.php
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-        console.log(textStatus);// if there is an error
-    }
-});*/
-
-/*$urlPromotable = function(name){
-    var result = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    return result[1] || 0;
-}*/
-
 function getIdFromUrl () {
     $(".usersList a").click(function () {
             var userId = $.QueryString("id");
@@ -132,8 +81,3 @@ function downgradeUser(){
         }
     });
 }
-
-
-// possible solution: https://stackoverflow.com/questions/31665575/sql-query-without-refresh
-
-//OR   https://stackoverflow.com/questions/42453785/update-the-value-of-select-box-with-php-mysql-jquery-ajax

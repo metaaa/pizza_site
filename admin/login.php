@@ -8,7 +8,6 @@
     }
 	//processing the data when form is submitted
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //if ($_GET['username'] !== ""){
 		//username & password have been sent
         $user = $_POST['username'];
         $userPass = $_POST['password'];
