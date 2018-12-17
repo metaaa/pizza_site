@@ -9,6 +9,14 @@ function login(event){
     event.preventDefault();
     var username = $("#usernameLogin").val();
     var password = $("#passwordLogin").val();
+    var options = {
+        style: {
+            main: {
+                background: "pink",
+                color: "black"
+            }
+        }
+    };
     if(username !== "" && password !== ""){
         $.ajax ({
             type:'POST',
@@ -20,16 +28,23 @@ function login(event){
             success:function(response) {
                 if (response === "true"){
                     location.href="admin/index.php";
+                } else if (response === "wrong_password") {
+                    //console.log("Invalid password!");
+                    iqwerty.toast.Toast("Invalid password!");
+                } else if (response === "not_registered"){
+                    //console.log("Not registered!");
+                    iqwerty.toast.Toast("Not registered!");
                 } else {
-                    console.log("Response error: ", JSON.stringify(response));
+                    //console.log("Server error!");
+                    iqwerty.toast.Toast("Server error!");
                 }
             },
             error: (error) => {
-                console.log("Error: ", JSON.stringify(error));
+                console.log("No response: ", JSON.stringify(error));
             }
         });
     } else {
-        alert("Please Fill All The Details");
+        iqwerty.toast.Toast("Please, fill all the details!", options);
     }
     return false;
 }
@@ -39,6 +54,14 @@ function register(event){
     var username = $("#regUsername").val();
     var password = $("#regPassword").val();
     var email = $("#regEmail").val();
+    var options = {
+        style: {
+            main: {
+                background: "pink",
+                color: "black"
+            }
+        }
+    };
     if(username !== "" && password !== "" && email !==""){
         $.ajax ({
             type:'POST',
@@ -52,13 +75,17 @@ function register(event){
                 if (response === "true"){
                     location.href="admin/index.php";
                 } else if (response === "invalid_email"){
-                    console.log("Invalid email");
+                    //console.log("Invalid email");
+                    iqwerty.toast.Toast("Invalid email!");
                 } else if (response === "email_error"){
-                    console.log("Email is already registered!")
+                    //console.log("Email is already registered!");
+                    iqwerty.toast.Toast("Email is already registered!");
                 } else if (response === "username_error"){
-                    console.log("Username is taken!")
+                    //console.log("Username is taken!");
+                    iqwerty.toast.Toast("Username is taken!");
                 } else {
-                    console.log("Response error: ", JSON.stringify(response));
+                    //console.log("Server error: ", JSON.stringify(response));
+                    iqwerty.toast.Toast("Server error!");
                 }
             },
             error: (error) => {
@@ -66,7 +93,7 @@ function register(event){
             }
         });
     } else {
-        alert("Please Fill All The Details");
+        iqwerty.toast.Toast("Please, fill all the details!", options);
     }
     return false;
 }

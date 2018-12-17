@@ -13,12 +13,10 @@
         $userPass = $_POST['password'];
         if (!empty($user) && !empty($userPass)){
             //select the user if it's exist
-            $sqlQuery = "SELECT * FROM users WHERE username = '$user' AND password = '$userPass'";
-            //var_dump($sqlQuery);
+            $sqlQuery = "SELECT * FROM users WHERE username = '$user'";
             $queryResult = $connection->query($sqlQuery);
             if ($queryResult->num_rows > 0){
                 $resultRow = $queryResult->fetch_assoc();
-                //if login found ($userSelect = 1)
                 if ($user == $resultRow["username"] && $userPass == $resultRow["password"]) {
                     //setting up session
                     $_SESSION['loggedin'] = true;
@@ -26,13 +24,13 @@
                     $_SESSION['admin'] = $resultRow['admin'];
                     echo "true";
                 } else {
-                    echo "false";
+                    echo "wrong_password";
                 }
             } else {
-                echo "no_user_data_found";
+                echo "not_registered";
             }
         }
 	} else {
-        echo "Error!";
+        echo "server_error";
     }
 

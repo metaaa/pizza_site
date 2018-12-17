@@ -44,21 +44,24 @@ function downgradeUser()
 }*/
 
 
-
+/*
 function getIdFromUrl () {
     $(".usersList a").click(function () {
             var userId = $.QueryString("id");
             alert(userId);
             return userId;
         });
-}
+}*/
 
 
-function promoteUser(){
+function promoteToAdmin(event){
+    event.preventDefault();
+    var userId = $(this).attr("id").split("=").pop();
+    console.log(userId);
     $.ajax({
-        url: "/pizza_site/admin/admin_functions.php",
-        type: "POST",
-        data: {promote: "yes"},
+        url: "../admin/admin_functions.php",
+        type: "GET",
+        data: {id: userId},
         success: function (data) {
             //var id = getIdFromUrl();
             console.log("data");
@@ -68,16 +71,17 @@ function promoteUser(){
 }
 
 
-function downgradeUser(){
+function downgradeUser(event){
+    event.preventDefault();
+    var userId = url('id');
+    console.log(userId);
     $.ajax({
-        url: "/pizza_site/admin/admin_functions.php",
-        type: "POST",
-        data: {downgrade: "yes"},
+        url: "../admin/admin_functions.php",
+        type: "GET",
+        data: {id: userId},
         success: function (data) {
-            getIdFromUrl();
             console.log("data");
-            alert("User downgraded!");
-
+            iqwerty.toast.Toast("User downgraded!");
         }
     });
 }
