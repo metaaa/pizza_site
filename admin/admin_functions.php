@@ -25,17 +25,17 @@ function listUsers() {
         if ($usersRow['admin'] == 1){
             $isAdmin = 'YES';
             $modifyAdmin = "icon_down.png";
-            $modifyFunc = "downgradeUser(event)";
+            $modifyFunc = "downgradeUser(event, ". $usersRow['id'] . ")";
         } else {
             $isAdmin = 'NO';
             $modifyAdmin = "icon_up.png";
-            $modifyFunc ="promoteToAdmin(event)";
+            $modifyFunc ="promoteToAdmin(event, " . $usersRow['id'] .  ")";
         }
         //decide if the user can be promoted or downgraded and shows an icon accordingly
         if ($usersRow['admin'] == 1 && $usersRow['id'] == 1){
             $promotable = '<img src="../images/other/icon_minus.png">';
         } else {
-            $promotable = '<a href="?id=' . $usersRow['id'] . '" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
+            $promotable = '<a href="#" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
         }
         //print out the table with the data
         echo
@@ -49,17 +49,16 @@ function listUsers() {
     }
     echo '</tbody></table>';
     //make upgrade/downgrade buttons work for jquery post method
-    //if (isset($_POST['method'])){
-
-        /*switch ($_POST['method']){
+    if (isset($_GET['id'])){
+        switch ($_GET['id']){
             case 'promoteUser':
                 promoteToAdmin(2);
                 break;
             case 'downgradeUser':
                 downgradeToUser(2);
                 break;
-        }*/
-    //}
+        }
+    }
 }
 /*$userId = $_GET['id'];
 echo '<script>console.log(' . json_encode($userId) . ')</script>';

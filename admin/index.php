@@ -43,6 +43,5 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="../scripts/user_handling.js"></script>
     <script src="../scripts/toast/toast.js"></script>
-    <script src="../scripts/url.min.js"></script>
     </body>
 </html>

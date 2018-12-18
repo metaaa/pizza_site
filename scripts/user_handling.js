@@ -44,43 +44,36 @@ function downgradeUser()
 }*/
 
 
-/*
-function getIdFromUrl () {
-    $(".usersList a").click(function () {
-            var userId = $.QueryString("id");
-            alert(userId);
-            return userId;
-        });
-}*/
 
 
-function promoteToAdmin(event){
+function promoteToAdmin(event, userId){
     event.preventDefault();
-    var userId = $(this).attr("id").split("=").pop();
-    console.log(userId);
     $.ajax({
         url: "../admin/admin_functions.php",
         type: "GET",
-        data: {id: userId},
+        data: {
+            id: userId,
+            promote: "true"
+        },
         success: function (data) {
-            //var id = getIdFromUrl();
-            console.log("data");
-            alert("User promoted!");
+            console.dir(data);
+            iqwerty.toast.Toast("User promoted!");
         }
     });
 }
 
 
-function downgradeUser(event){
+function downgradeUser(event, userId){
     event.preventDefault();
-    var userId = url('id');
-    console.log(userId);
     $.ajax({
         url: "../admin/admin_functions.php",
         type: "GET",
-        data: {id: userId},
+        data: {
+            id: userId,
+            promote: "true"
+        },
         success: function (data) {
-            console.log("data");
+            console.dir(data);
             iqwerty.toast.Toast("User downgraded!");
         }
     });
