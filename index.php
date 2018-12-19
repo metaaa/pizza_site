@@ -1,4 +1,5 @@
 <?php
+    require_once 'config.php';
 	session_start();
 	//configuring session timeout
 	//getting server time
@@ -51,34 +52,36 @@
                         }
 					?>
 				</div>
+                <div id="rightColumn" class="divRightColumn">
                 <?php
                     if (!$_SESSION['loggedin'] && !isset($_SESSION['loggedin'])) {
-                        echo '<div id="rightColumn" class="divRightColumn">
-                                <div class="loginPage">
-                                    <div id="logRegForm" class="logRegForm">
-                                        <form action="admin/register.php" class="register-form" id="register-form" method="POST" onsubmit="register(event)">
-                                            <input id="regUsername" name="regUsername" placeholder="username" type="text" autocomplete="username"/>
-                                            <input id="regPassword" name="regPassword" placeholder="password" type="password" autocomplete="current-password"/>
-                                            <input id="regEmail" name="regEmail" placeholder="email address" type="text" autocomplete="email"/>
-                                            <button id="buttonReg" name="submit" type="submit" value="Submit">create</button>
-                                            <p class="message">Already registered? <a href="#">Sign In</a></p>
-                                        </form>
-                                        <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="login(event)">
-                                            <input id="usernameLogin" name="username" placeholder="username" type="text" autocomplete="username"/>
-                                            <input id="passwordLogin" name="password" placeholder="password" type="password" autocomplete="current-password"/>
-                                            <button id="buttonLogin" name="submit" type="submit" value="Login">login</button>
-                                            <p class="message">Not registered? <a href="#">Create an account</a></p>
-                                        </form>
-                                        <div id="errorMessage" class="errorMessage" style="display: none">
-                                            <p>Invalid data!</p>
-                                        </div>
+                        echo '<div class="loginPage">
+                                <div id="logRegForm" class="logRegForm">
+                                    <form action="admin/register.php" class="register-form" id="register-form" method="POST" onsubmit="register(event)">
+                                        <input id="regUsername" name="regUsername" placeholder="username" type="text" autocomplete="username"/>
+                                        <input id="regPassword" name="regPassword" placeholder="password" type="password" autocomplete="current-password"/>
+                                        <input id="regEmail" name="regEmail" placeholder="email address" type="text" autocomplete="email"/>
+                                        <button id="buttonReg" name="submit" type="submit" value="Submit">create</button>
+                                        <p class="message">Already registered? <a href="#">Sign In</a></p>
+                                    </form>
+                                    <form action="admin/login.php" class="login-form" id="login-form" method="POST" onsubmit="login(event)">
+                                        <input id="usernameLogin" name="username" placeholder="username" type="text" autocomplete="username"/>
+                                        <input id="passwordLogin" name="password" placeholder="password" type="password" autocomplete="current-password"/>
+                                        <button id="buttonLogin" name="submit" type="submit" value="Login">login</button>
+                                        <p class="message">Not registered? <a href="#">Create an account</a></p>
+                                    </form>
+                                    <div id="errorMessage" class="errorMessage" style="display: none">
+                                        <p>Invalid data!</p>
                                     </div>
                                 </div>';
                     } else {
-                        echo '<div>You are logged in as <a href="admin/">' . $_SESSION['username'] . '</a></br>For Log out click <a href="admin/logout.php">here</a></div>';
+                        echo '<div class="card">
+                                <img src="images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '">
+                                <h3><a href="admin/">' . $_SESSION['username'] . '</a></h3>
+                                <button><a style="color: white" href="admin/logout.php">Log out</a></button>
+                                </div>';
                     }
-                    ?>
-				</div>
+                ?>
 			</div>
 			<div id="footer" class="divFooter">
 				<div id="footerLeft" class="divFooterLeft"></div>

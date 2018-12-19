@@ -35,7 +35,7 @@ function listUsers() {
         if ($usersRow['admin'] == 1 && $usersRow['id'] == 1){
             $promotable = '<img src="../images/other/icon_minus.png">';
         } else {
-            $promotable = '<a href="#" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
+            $promotable = '<a id="userMethod' . $usersRow['id'] . '" href="#" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
         }
         //print out the table with the data
         echo
@@ -49,32 +49,24 @@ function listUsers() {
     }
     echo '</tbody></table>';
     //make upgrade/downgrade buttons work for jquery post method
-    if (isset($_GET['id'])){
-        switch ($_GET['id']){
-            case 'promoteUser':
-                promoteToAdmin(2);
-                break;
-            case 'downgradeUser':
-                downgradeToUser(2);
-                break;
-        }
+
+
+}
+
+if (isset($_GET['id']) && isset($_GET['method'])){
+    switch ($_GET['method']){
+        case 'promote':
+            $promoteQuery = "UPDATE users SET admin = 1 WHERE id = '" . $_GET['id'] . "'";
+            $connection->query($promoteQuery);
+            echo "promoted";
+            break;
+        case 'downgrade':
+            $query = "UPDATE users SET admin = NULL WHERE id = '" . $_GET['id'] . "'";
+            $connection->query($query);
+            echo "downgraded";
+            break;
     }
 }
-/*$userId = $_GET['id'];
-echo '<script>console.log(' . json_encode($userId) . ')</script>';
-
-function promoteToAdmin($userId){
-    global $connection;
-    $query = "UPDATE users SET admin = 1 WHERE id = '$userId'";
-    $connection->query($query);
-}
-
-function downgradeToUser($userId){
-    global $connection;
-    $query = "UPDATE users SET admin = NULL WHERE id = '$userId'";
-    $connection->query($query);
-}*/
-
 /*function listOrders(){
     global $connection;
 }*/

@@ -41,7 +41,7 @@
         </div>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src="../scripts/user_handling.js"></script>
+    <script src="../scripts/admin_functions.js"></script>
     <script src="../scripts/toast/toast.js"></script>
     </body>
 </html>
