@@ -30,7 +30,11 @@
                 </div>
                 <div id="rightColumn" class="divRightColumn">
                     <?php
-                        echo '<div>You are logged in as <a href="admin/">' . $_SESSION['username'] . '</a></br>For Log out click <a href="admin/logout.php">here</a></div>';
+                        echo '<div class="card">
+                                    <img src="../images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '"><br>
+                                    <p>' . $_SESSION['username'] . '</p>
+                                    <button><a style="color: white" href="admin/logout.php">Log out</a></button>
+                                    </div>';
                     ?>
                 </div>
             </div>

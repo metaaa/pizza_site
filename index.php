@@ -76,8 +76,8 @@
                                 </div>';
                     } else {
                         echo '<div class="card">
-                                <img src="images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '">
-                                <h3><a href="admin/">' . $_SESSION['username'] . '</a></h3>
+                                <img src="images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '"><br>
+                                <a href="admin/">' . $_SESSION['username'] . '<br> [admin area]</a>
                                 <button><a style="color: white" href="admin/logout.php">Log out</a></button>
                                 </div>';
                     }

@@ -3,6 +3,7 @@
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         //request data from the database which can be seen by the user
         include 'userHandling.php';
+        include 'pizzaHandling.php';
 
     } else {
         header('Location: ../index.php');
@@ -27,7 +28,9 @@ asd
             ?>
         </section>
         <section id="content3">
-            ewt
+            <?php
+                listPizzas();
+            ?>
         </section>
         <section id="content4">
             xcv
