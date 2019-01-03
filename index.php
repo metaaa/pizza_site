@@ -13,6 +13,7 @@
         header('Location: index.php');
     }
     $_SESSION['LAST_ACTIVITY'] = $time;
+    $_SESSION['ordersInCart'] = array();
 ?>
 
 <!DOCTYPE html>
