@@ -17,25 +17,28 @@ function listUsers() {
             <th>username</th>
             <th>email</th>
             <th>admin</th>
-            <th>promote/revoke</th>
+            <th>actions</th>
         </tr>
         <tbody>';
     while($usersRow = $userListResult->fetch_assoc()) {
         //print out if the listed user is admin or not
         if ($usersRow['admin'] == 1){
             $isAdmin = 'YES';
-            $modifyAdmin = "icon_down.png";
+            $modifyAdmin = "downgrade.png";
             $modifyFunc = "downgradeUser(event, ". $usersRow['id'] . ")";
         } else {
             $isAdmin = 'NO';
-            $modifyAdmin = "icon_up.png";
+            $modifyAdmin = "upgrade.png";
             $modifyFunc ="promoteToAdmin(event, " . $usersRow['id'] .  ")";
         }
         //decide if the user can be promoted or downgraded and shows an icon accordingly
+        $deleteUser = $promotable = "";
+        //
         if ($usersRow['admin'] == 1 && $usersRow['id'] == 1){
-            $promotable = '<img src="../images/other/icon_minus.png">';
+            $promotable = '<img src="../images/other/no_action.png">';
         } else {
             $promotable = '<a id="userMethod' . $usersRow['id'] . '" href="#" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
+            $deleteUser = '<a href="#" onclick="deleteUser(event, ' . $usersRow['id'] . ')"><img src="../images/other/trash.png"></a>';
         }
         //print out the table with the data
         echo
@@ -44,13 +47,11 @@ function listUsers() {
                 <td>' . $usersRow['username'] . '</td>
                 <td>' . $usersRow['email'] . '</td>
                 <td>' . $isAdmin . '</td>
-                <td>' . $promotable . '</td>
+                <td>' . $promotable . $deleteUser . '</td>
             </tr>';
     }
     echo '</tbody></table>';
     //make upgrade/downgrade buttons work for jquery post method
-
-
 }
 
 if (isset($_GET['id']) && isset($_GET['method'])){
@@ -61,9 +62,14 @@ if (isset($_GET['id']) && isset($_GET['method'])){
             echo "promoted";
             break;
         case 'downgrade':
-            $query = "UPDATE users SET admin = NULL WHERE id = '" . $_GET['id'] . "'";
-            $connection->query($query);
+            $downgradeQuery = "UPDATE users SET admin = NULL WHERE id = '" . $_GET['id'] . "'";
+            $connection->query($downgradeQuery);
             echo "downgraded";
+            break;
+        case 'delete':
+            $deleteQuery = "DELETE FROM users WHERE id = '" . $_GET['id'] . "'";
+            $connection->query($deleteQuery);
+            echo "deleted";
             break;
     }
 }

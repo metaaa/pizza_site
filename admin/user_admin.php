@@ -23,6 +23,9 @@
 asd
         </section>
         <section id="content2" class="content2">
+            <div class="userAdd">
+                <a id="userAddBtn" href="#" onclick=""><img src="../images/other/plus.png" alt="Add User"></a>
+            </div>
             <?php
                 listUsers();
             ?>
