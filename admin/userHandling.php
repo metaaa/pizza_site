@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once "../config.php";
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
@@ -32,13 +32,14 @@ function listUsers() {
             $modifyFunc ="promoteToAdmin(event, " . $usersRow['id'] .  ")";
         }
         //decide if the user can be promoted or downgraded and shows an icon accordingly
-        $deleteUser = $promotable = "";
+        $deleteUser = $modifyUser = $promotable = "";
         //
         if ($usersRow['admin'] == 1 && $usersRow['id'] == 1){
             $promotable = '<img src="../images/other/no_action.png">';
         } else {
             $promotable = '<a id="userMethod' . $usersRow['id'] . '" href="#" onclick="' . $modifyFunc . '"><img src="../images/other/' . $modifyAdmin . '"></a>';
             $deleteUser = '<a href="#" onclick="deleteUser(event, ' . $usersRow['id'] . ')"><img src="../images/other/trash.png"></a>';
+            $modifyUser = '<a href="#" onclick="newUser(event, ' . $usersRow['id'] . ')"><img src="../images/other/edit.png"></a>';
         }
         //print out the table with the data
         echo
@@ -47,12 +48,19 @@ function listUsers() {
                 <td>' . $usersRow['username'] . '</td>
                 <td>' . $usersRow['email'] . '</td>
                 <td>' . $isAdmin . '</td>
-                <td>' . $promotable . $deleteUser . '</td>
+                <td>' . $promotable . $deleteUser . $modifyUser . '</td>
             </tr>';
     }
     echo '</tbody></table>';
-    //make upgrade/downgrade buttons work for jquery post method
 }
+
+function newUser(){
+    global $connection;
+    $newUserQuery ="CREATE";
+    $connection->query($newUserQuery);
+    echo "user_created";
+}
+
 
 if (isset($_GET['id']) && isset($_GET['method'])){
     switch ($_GET['method']){

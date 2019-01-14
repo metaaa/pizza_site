@@ -33,7 +33,7 @@
                         echo '<div class="card">
                                     <img src="../images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '"><br>
                                     <p>' . $_SESSION['username'] . '</p>
-                                    <button><a style="color: white" href="admin/logout.php">Log out</a></button>
+                                    <button><a style="color: white" href="logout.php">Log out</a></button>
                                     </div>';
                     ?>
                 </div>
@@ -47,5 +47,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="../scripts/admin_functions.js"></script>
     <script src="../scripts/toast/toast.js"></script>
+    <script src="../scripts/user_add_modal.js"></script>
     </body>
 </html>

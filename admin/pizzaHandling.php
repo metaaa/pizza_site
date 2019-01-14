@@ -18,6 +18,7 @@ function listPizzas(){
             <th>description</th>
             <th>price</th>
             <th>image</th>
+            <th>actions</th>
         </tr>
         <tbody>';
     while ($pizzasRow = $pizzaListResult->fetch_assoc()) {
@@ -27,7 +28,8 @@ function listPizzas(){
                 <td>' . $pizzasRow['name'] . '</td>
                 <td>' . $pizzasRow['description'] . '</td>
                 <td>' . $pizzasRow['price'] . '</td>
-                <td>' . $pizzasRow['imageLink'] . '</td>
+                <td><img src="../' . $pizzasRow['imageLink'] . '"></td>
+                <td></td>
             </tr>';
     }
     echo '</tbody></table>';

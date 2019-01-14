@@ -24,7 +24,18 @@ asd
         </section>
         <section id="content2" class="content2">
             <div class="userAdd">
-                <a id="userAddBtn" href="#" onclick=""><img src="../images/other/plus.png" alt="Add User"></a>
+                <a class="trigger"><img src="../images/other/plus.png"></a>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <form class="userAddForm" action="" method="POST" onsubmit="">
+                            <input id="addUsrName" name="addUsrName" placeholder="username" type="text"/>
+                            <input id="addUsrEmail" name="addUsrEmail" placeholder="email" type="text"/>
+                            <input id="addUsrAdmin" name="addUsrAdmin" type="checkbox" value="yes"> Admin
+                        </form>
+                    </div>
+                </div>
+
             </div>
             <?php
                 listUsers();

@@ -101,7 +101,7 @@ function register(event){
 
 
 /*
-function ajax(url, options, modal) {
+function ajax(url, options, userAddModal) {
     var defaults = {
         type: 'POST',
         url: url,
