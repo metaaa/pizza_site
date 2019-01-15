@@ -27,11 +27,13 @@ asd
                 <a class="trigger"><img src="../images/other/plus.png"></a>
                 <div class="modal">
                     <div class="modal-content">
+                        <span class="modalHeader"> Add User</span>
                         <span class="close-button">×</span>
                         <form class="userAddForm" action="" method="POST" onsubmit="">
                             <input id="addUsrName" name="addUsrName" placeholder="username" type="text"/>
                             <input id="addUsrEmail" name="addUsrEmail" placeholder="email" type="text"/>
-                            <input id="addUsrAdmin" name="addUsrAdmin" type="checkbox" value="yes"> Admin
+                            <input id="addUsrAdmin" class="addUsrAdmin" name="addUsrAdmin" type="checkbox" value="yes"><span class="usrAddAdminTitle">Admin</span>
+                            <button class="addUsrSubmit" type="submit" value="submit">Submit</button>
                         </form>
                     </div>
                 </div>

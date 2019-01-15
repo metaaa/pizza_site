@@ -458,6 +458,10 @@ body {
 	border-radius: 0.5rem;
 }
 
+.userAddForm {
+	text-align: left;
+}
+
 .userAddForm input {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
@@ -468,6 +472,7 @@ body {
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
+	display: unset;
 }
 
 .close-button {
@@ -487,4 +492,22 @@ body {
 	visibility: visible;
 	transform: scale(1.0);
 	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+input#addUsrAdmin.addUsrAdmin{
+	width: auto;
+	margin: 0px;
+}
+
+.modalHeader{
+	display: inline-block;
+	line-height: 3em;
+	text-align: center;
+}
+.usrAddAdminTitle {
+	display: inline-block;
+	padding-left: 5px;
+}
+.addUsrSubmit {
+	text-align: right;
 }
