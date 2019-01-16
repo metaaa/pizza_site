@@ -65,7 +65,7 @@ function deleteUser(event, userId){
 }
 
 function addUser(event){
-    event.preventDefault();
+    //event.preventDefault();
     var username = $("#addUsrName").val();
     var isadmin = $("#addUsrAdmin").val();
     var email = $("#addUsrEmail").val();
@@ -82,24 +82,24 @@ function addUser(event){
             type:'POST',
             url:'../admin/userHandling.php',
             data: {
-                username: username,
-                isadmin: isadmin,
-                email: email
+                addUser: username,
+                addAdmin: isadmin,
+                AddEmail: email
             },
             success:function(response) {
-                if (response === "added"){
+                if (response === "new_user_added"){
                     iqwerty.toast.Toast("User added!");
                 } else if (response === "invalid_email"){
-                    //console.log("Invalid email");
+                    console.log("Invalid email");
                     iqwerty.toast.Toast("Invalid email!");
                 } else if (response === "email_error"){
-                    //console.log("Email is already registered!");
+                    console.log("Email is already registered!");
                     iqwerty.toast.Toast("Email is already registered!");
                 } else if (response === "username_error"){
-                    //console.log("Username is taken!");
+                    console.log("Username is taken!");
                     iqwerty.toast.Toast("Username is taken!");
                 } else {
-                    //console.log("Server error: ", JSON.stringify(response));
+                    console.log("Server error: ", JSON.stringify(response));
                     iqwerty.toast.Toast("Error!");
                 }
             },

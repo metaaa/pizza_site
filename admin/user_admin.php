@@ -29,7 +29,7 @@ asd
                     <div class="modal-content">
                         <div class="close-button">×</div>
                         <div class="modalHeader"> Add User</div>
-                        <form class="userAddForm" action="" method="POST" onsubmit="">
+                        <form class="userAddForm" action="userHandling.php" method="POST" onsubmit="addUser(event)">
                             <input id="addUsrName" name="addUsrName" placeholder="username" type="text"/>
                             <input id="addUsrEmail" name="addUsrEmail" placeholder="email" type="text"/>
                             <div class="usrAddCB"><input id="addUsrAdmin" class="addUsrAdmin" name="addUsrAdmin" type="checkbox" value="yes"><span class="usrAddAdminTitle">Admin</span></div>
