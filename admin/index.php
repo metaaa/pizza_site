@@ -33,7 +33,7 @@
                         echo '<div class="card">
                                     <img src="../images/useravatars/img_avatar.png" alt="' . $_SESSION['username'] . '"><br>
                                     <p>' . $_SESSION['username'] . '</p>
-                                    <button><a style="color: white" href="logout.php">Log out</a></button>
+                                    <div class="logOutBtn"><a style="color: white" href="logout.php">Log out</a></div>
                                     </div>';
                     ?>
                 </div>

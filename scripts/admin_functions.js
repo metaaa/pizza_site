@@ -63,3 +63,55 @@ function deleteUser(event, userId){
         $("#content2").load(location.href+" #content2>*","");
     });
 }
+
+function addUser(event){
+    event.preventDefault();
+    var username = $("#addUsrName").val();
+    var isadmin = $("#addUsrAdmin").val();
+    var email = $("#addUsrEmail").val();
+    var options = {
+        style: {
+            main: {
+                background: "pink",
+                color: "black"
+            }
+        }
+    };
+    if(username !== "" && email !==""){
+        var request = $.ajax ({
+            type:'POST',
+            url:'../admin/userHandling.php',
+            data: {
+                username: username,
+                isadmin: isadmin,
+                email: email
+            },
+            success:function(response) {
+                if (response === "added"){
+                    iqwerty.toast.Toast("User added!");
+                } else if (response === "invalid_email"){
+                    //console.log("Invalid email");
+                    iqwerty.toast.Toast("Invalid email!");
+                } else if (response === "email_error"){
+                    //console.log("Email is already registered!");
+                    iqwerty.toast.Toast("Email is already registered!");
+                } else if (response === "username_error"){
+                    //console.log("Username is taken!");
+                    iqwerty.toast.Toast("Username is taken!");
+                } else {
+                    //console.log("Server error: ", JSON.stringify(response));
+                    iqwerty.toast.Toast("Error!");
+                }
+            },
+            error: (error) => {
+                console.log("Error: ", JSON.stringify(error));
+            }
+        });
+        request.done(function (data){
+            $("#content2").load(location.href+" #content2>*","");
+        });
+    } else {
+        iqwerty.toast.Toast("Please, fill all the details!", options);
+    }
+    return false;
+}
