@@ -67,7 +67,7 @@ function deleteUser(event, userId){
 function addUser(event){
     //event.preventDefault();
     var username = $("#addUsrName").val();
-    var isadmin = $("#addUsrAdmin").val();
+    var admin = $("#addUsrAdmin").val();
     var email = $("#addUsrEmail").val();
     var options = {
         style: {
@@ -77,14 +77,15 @@ function addUser(event){
             }
         }
     };
+    console.log(username, admin, email);
     if(username !== "" && email !==""){
         var request = $.ajax ({
             type:'POST',
-            url:'../admin/userHandling.php',
+            url:'admin/add_user.php',
             data: {
-                addUser: username,
-                addAdmin: isadmin,
-                AddEmail: email
+                username: username,
+                admin: admin,
+                email: email
             },
             success:function(response) {
                 if (response === "new_user_added"){
@@ -104,6 +105,7 @@ function addUser(event){
                 }
             },
             error: (error) => {
+                console.log(username, admin, email);
                 console.log("Error: ", JSON.stringify(error));
             }
         });
@@ -113,5 +115,6 @@ function addUser(event){
     } else {
         iqwerty.toast.Toast("Please, fill all the details!", options);
     }
+    console.log(username, admin, email);
     return false;
 }

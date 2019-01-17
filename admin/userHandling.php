@@ -82,43 +82,7 @@ if (isset($_GET['id']) && isset($_GET['method'])){
     }
 }
 
-if (isset($_POST['addUser']) && isset($_POST['addEmail'])){
-    $newUsername = $_POST['addUser'];
-    $newUserEmail = $_POST['addEmail'];
-    $newUserAdmin = $_POST['addAdmin'];
-    $nameCheckQuery = "SELECT username,email FROM users WHERE username = '$newUsername' OR email = '$newUserEmail'";
-    $checkQueryResult = $connection->query($nameCheckQuery);
-    if ($checkQueryResult->num_rows > 0){
-        $resultRow = $checkQueryResult->fetch_assoc();
-        //check whether the username or the email is taken
-        if ($newUsername == $resultRow["username"] && $newUserEmail !== $resultRow["email"]){
-            echo("username_error");
-        } elseif ($newUsername !== $resultRow["username"] && $newUserEmail == $resultRow["email"]) {
-            echo("email_error");
-        }
-        //checks if the email is valid
-    } elseif (!filter_var($newUserEmail, FILTER_VALIDATE_EMAIL)){
-        echo "invalid_email";
-    } else {
-        //generate random password
-        random_password(8);
-        //insert into the database
-        if ($newUserAdmin = ""){
-            $newUserAdmin = NULL;
-        } else {
-            $newUserAdmin = 1;
-        }
-        $newUserQuery = "INSERT INTO users (username, email, admin) VALUES ($newUsername, $newUserEmail, $newUserAdmin)";
-        $connection->query($newUserQuery);
-        echo "new_user_added";
-    }
-}
 
-function random_password( $length ) {
-
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-/!";
-    return substr(str_shuffle($chars),0,$length);
-}
 /*function listOrders(){
     global $connection;
 }*/

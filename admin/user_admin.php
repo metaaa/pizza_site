@@ -4,6 +4,7 @@
         //request data from the database which can be seen by the user
         include 'userHandling.php';
         include 'pizzaHandling.php';
+        include 'add_user.php';
 
     } else {
         header('Location: ../index.php');
@@ -29,11 +30,11 @@ asd
                     <div class="modal-content">
                         <div class="close-button">×</div>
                         <div class="modalHeader"> Add User</div>
-                        <form class="userAddForm" action="userHandling.php" method="POST" onsubmit="addUser(event)">
-                            <input id="addUsrName" name="addUsrName" placeholder="username" type="text"/>
-                            <input id="addUsrEmail" name="addUsrEmail" placeholder="email" type="text"/>
+                        <form class="userAddForm" action="add_user.php" method="POST" onsubmit="addUser(event)">
+                            <input id="addUsrName" class="addUsrName" name="addUsrName" placeholder="username" type="text"/>
+                            <input id="addUsrEmail" class="addUsrEmail" name="addUsrEmail" placeholder="email" type="text"/>
                             <div class="usrAddCB"><input id="addUsrAdmin" class="addUsrAdmin" name="addUsrAdmin" type="checkbox" value="yes"><span class="usrAddAdminTitle">Admin</span></div>
-                            <div class="usrAddSubBtn"><button class="addUsrSubmit" type="submit" value="submit">Submit</button></div>
+                            <div class="usrAddSubBtn"><button class="addUsrSubmit" type="submit" value="Submit">create</button></div>
                         </form>
                     </div>
                 </div>
