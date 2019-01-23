@@ -2,11 +2,6 @@
 require_once '../config.php';
 //if login data is correct start session
 session_start();
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-
-} else {
-    header('Location: ../index.php');
-}
 //check connection
 if ($connection->connect_errno){
     echo ("Connection failed: " . $connection->connect_error);
@@ -16,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $newUsername = $_POST['username'];
     $newUserEmail = $_POST['email'];
     $newUserAdmin = $_POST['admin'];
-    var_dump($newUsername, $newUserEmail);
+    //var_dump($newUsername, $newUserEmail);
     if (!empty($newUsername) && !empty($newUserEmail)) {
         $nameCheckQuery = "SELECT username,email FROM users WHERE username = '$newUsername' OR email = '$newUserEmail'";
         $checkQueryResult = $connection->query($nameCheckQuery);
@@ -40,7 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $connection->query($newUserQuery);
             echo "new_user_added";
         }
+    } else {
+        echo "no_submitted_data";
     }
+} else {
+    echo "server_error";
 }
 
 function random_password($length){

@@ -65,7 +65,7 @@ function deleteUser(event, userId){
 }
 
 function addUser(event){
-    //event.preventDefault();
+    event.preventDefault();
     var username = $("#addUsrName").val();
     var admin = $("#addUsrAdmin").val();
     var email = $("#addUsrEmail").val();
@@ -81,7 +81,7 @@ function addUser(event){
     if(username !== "" && email !==""){
         var request = $.ajax ({
             type:'POST',
-            url:'admin/add_user.php',
+            url:'../admin/add_user.php',
             data: {
                 username: username,
                 admin: admin,
