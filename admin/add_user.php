@@ -37,9 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     } else {
         echo "no_submitted_data";
+        var_dump($newUsername, $newUserEmail);
     }
 } else {
     echo "server_error";
+    var_dump($newUsername, $newUserEmail);
 }
 
 function random_password($length){
