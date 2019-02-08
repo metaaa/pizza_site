@@ -12,7 +12,7 @@ window.addEventListener("click", function (event){if (event.target === modal) {t
 
 
 function addUser(event){
-    //event.preventDefault();
+    event.preventDefault();
     var username = $("#addUsrName").val();
     var admin = $("#addUsrAdmin").val();
     var email = $("#addUsrEmail").val();
@@ -24,11 +24,10 @@ function addUser(event){
             }
         }
     };
-    console.log(username, admin, email);
     if(username !== "" && email !==""){
         var request = $.ajax ({
-            type:'POST',
-            url:'../admin/add_user.php',
+            type: "POST",
+            url: "../admin/add_user.php",
             data: {
                 username: username,
                 admin: admin,
@@ -53,7 +52,7 @@ function addUser(event){
             },
             error: (error) => {
                 console.log(username, admin, email);
-                console.log("Error: ", JSON.stringify(error));
+                console.log("No/False response Error: ", JSON.stringify(error));
             }
         });
         request.done(function (data){
@@ -62,6 +61,5 @@ function addUser(event){
     } else {
         iqwerty.toast.Toast("Please, fill all the details!", options);
     }
-    console.log(username, admin, email);
-    return false;
+    //return false;
 }

@@ -38,4 +38,3 @@
             }
         }
     }
-//create snackbar

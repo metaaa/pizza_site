@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $newUserPassword = random_password(8);
             //check whether it's admin or not
             $newUserAdmin = ($newUserAdmin == "") ? NULL : 1;
-            $newUserQuery = "INSERT INTO users (username, email, password, admin) VALUES ($newUsername, $newUserEmail, $newUserPassword $newUserAdmin)";
+            $newUserQuery = "INSERT INTO users (username, email, password, admin) VALUES ('$newUsername', '$newUserEmail', '$newUserPassword', '$newUserAdmin')";
             $connection->query($newUserQuery);
             echo "new_user_added";
         }
@@ -39,9 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         echo "no_submitted_data";
         var_dump($newUsername, $newUserEmail);
     }
-} else {
-    echo "server_error";
-    var_dump($newUsername, $newUserEmail);
 }
 
 function random_password($length){
